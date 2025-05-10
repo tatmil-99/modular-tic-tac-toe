@@ -1,11 +1,12 @@
 const gameBoard = (function () {
-  const board = [
-    [null, null, null], // row1
-    [null, null, null], // row2
-    [null, null, null], // row3
+  const cell = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
   ];
-
-  return { board };
+  return {
+    cell,
+  };
 })();
 
 // namespace for tracking player number
@@ -14,7 +15,6 @@ const counter = (function () {
 
   const increment = () => {
     count++;
-    console.log(`Current count: ${count}`);
   };
 
   const getCount = () => count;
@@ -40,5 +40,33 @@ function newPlayer(mark, name = null) {
   return { mark, setName, getName };
 }
 
-const player1 = newPlayer("X", "guy");
-const player2 = newPlayer("O");
+// Game Logic
+/* function game():
+    declare player1 obj;
+
+    player1 choose cell
+      create "mark" setter on gameBoard
+        iterate through cell array
+          set 3 column vars (value references)
+          set 3 mark counters for columns
+          ^^^should these be private vars on gameBoard?
+             and should this logic apply to rows? 
+             state will need to persist between player turns
+
+          iterate through rows
+            check if all 3 cells are one of a kind
+
+            if each element is same as value in respective column var
+              add 1 to counter
+            else 
+              set respective column var to element value, and 
+              add one to respective counter
+          
+          if any column counters == 3 return a winner
+ */
+
+const game = (function () {
+  const player1 = newPlayer("X", "guy");
+
+  console.log(gameBoard.cell);
+})();
