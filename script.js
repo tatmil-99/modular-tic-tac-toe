@@ -5,6 +5,7 @@ const gameBoard = (function () {
     ["o", "o", "o"],
   ];
 
+  // makes board columns 2D to perform 3-in-a-row check
   const column1 = [];
   const column2 = [];
   const column3 = [];
