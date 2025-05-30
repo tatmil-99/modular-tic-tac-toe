@@ -1,20 +1,37 @@
 const gameBoard = (function () {
   const cell = [
-    ["x", "o", "o"],
-    [null, null, null],
-    [null, null, null],
+    ["o", "x", "x"],
+    ["o", "x", "o"],
+    ["o", "o", "o"],
   ];
+
+  const column1 = [];
+  const column2 = [];
+  const column3 = [];
 
   const hasThreeInArow = () => {
     cell.forEach((row) => {
-      if (row.every((val) => val === "x")) {
-        console.log("true");
-      } else if (row.every((val) => val === "o")) {
-        console.log("true");
-      } else {
-        console.log("false");
-      }
+      column1.push(row[0]);
+      column2.push(row[1]);
+      column3.push(row[2]);
+
+      // if (row.every((val) => val === "x")) {
+      //   console.log("true");
+      // } else if (row.every((val) => val === "o")) {
+      //   console.log("true");
+      // } else {
+      //   console.log("false");
+      // }
     });
+
+    // repeat 3 in a row check for columns
+    if (column1.every((element) => element === "x")) {
+      console.log("true");
+    } else if (column1.every((element) => element === "o")) {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
   };
 
   return {
